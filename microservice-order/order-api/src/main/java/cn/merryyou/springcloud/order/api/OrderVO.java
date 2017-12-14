@@ -20,10 +20,6 @@ public class OrderVO {
 
     long orderId;
 
-    long productId;
-
-    String productName;
-
     int quantity;
 
     ProductVO product;
@@ -33,8 +29,7 @@ public class OrderVO {
 
     public OrderVO(long orderId, long productId, String productName, int quantity) {
         this.orderId = orderId;
-        this.productId = productId;
-        this.productName = productName;
+        product = new ProductVO(productId, productName);
         this.quantity = quantity;
     }
 
@@ -44,22 +39,6 @@ public class OrderVO {
 
     public void setOrderId(long orderId) {
         this.orderId = orderId;
-    }
-
-    public long getProductId() {
-        return productId;
-    }
-
-    public void setProductId(long productId) {
-        this.productId = productId;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
     }
 
     public int getQuantity() {
@@ -74,8 +53,6 @@ public class OrderVO {
     public String toString() {
         return "OrderVO{" +
                 "orderId=" + orderId +
-                ", productId=" + productId +
-                ", productName='" + productName + '\'' +
                 ", quantity=" + quantity +
                 '}';
     }

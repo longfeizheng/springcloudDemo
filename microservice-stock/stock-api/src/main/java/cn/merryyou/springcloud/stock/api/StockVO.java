@@ -8,7 +8,7 @@ package cn.merryyou.springcloud.stock.api;
  */
 public class StockVO {
 
-    long productId;
+    ProductVO product;
 
     String productName;
 
@@ -18,21 +18,12 @@ public class StockVO {
     public StockVO() {
     }
 
-    public long getProductId() {
-        return productId;
-    }
-
-
-
     public StockVO(long productId, String productName, int reduce) {
-        this.productId = productId;
+        this.product = new ProductVO(productId, productName);
         this.productName = productName;
         this.reduce = reduce;
     }
 
-    public void setProductId(long productId) {
-        this.productId = productId;
-    }
 
     public String getProductName() {
         return productName;

@@ -1,5 +1,6 @@
 package cn.merryyou.springcloud.stock.web;
 
+import cn.merryyou.springcloud.stock.api.ProductVO;
 import cn.merryyou.springcloud.stock.api.StockVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,5 +40,14 @@ public class StockController {
         log.info("====success reduced {} products with product id:{}", stock.getReduce(), productId);
 
         return new ResponseEntity<String>(HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/product/{productid}", method = RequestMethod.GET)
+    @ResponseBody
+    public ResponseEntity<ProductVO> getProduct(@PathVariable long productid) {
+        ServiceInstance instance = client.getLocalServiceInstance();
+        log.info("/get product,host:{},service_id:{}", instance.getHost(), instance.getServiceId());
+        ProductVO product = new ProductVO(productid, "sample");
+        return new ResponseEntity<ProductVO>(product, HttpStatus.OK);
     }
 }

@@ -13,6 +13,9 @@
         <module>microservice-order</module>
         <module>zuul-server</module>
         <module>client-test</module>
+        <module>commons</module>
+        <module>authentication-server</module>
+        <module>authentication-server</module>
     </modules>
     <packaging>pom</packaging>
 
