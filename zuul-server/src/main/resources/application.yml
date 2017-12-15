@@ -4,13 +4,30 @@ spring:
 server:
   port: 8000
 
-
 eureka:
   client:
     serviceUrl:
      defaultZone: http://localhost:1111/eureka/
 zuul:
+  ignoredServices: '*'
   routes:
     order:
-      path: /order-service/**
+      path: /order/**
       serviceId: order-service
+      stripPrefix: false
+    stock:
+      path: /stock/**
+      serviceId: stock-service
+      stripPrefix: false
+    auth:
+      path: /uaa/**
+      serviceId: auth-service
+      stripPrefix: false
+
+zuul.sensitiveHeaders: Cookie,Set-Cookie
+
+logging:
+  level: debug
+
+
+

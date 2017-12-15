@@ -12,6 +12,7 @@ import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableOAuth2Client;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.*;
  * @since 1.0
  */
 @RestController
+@EnableOAuth2Client
 @RequestMapping(value = "/order")
 @Slf4j
 public class OrderController {
