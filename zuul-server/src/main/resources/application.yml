@@ -1,6 +1,6 @@
 spring:
   application:
-    name: aip-gatway
+    name: gateway-service
 server:
   port: 8000
 

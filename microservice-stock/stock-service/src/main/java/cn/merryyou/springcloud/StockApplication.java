@@ -3,9 +3,11 @@ package cn.merryyou.springcloud;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 
 /**
@@ -14,8 +16,10 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
  * @author zlf
  * @since 1.0
  */
-@EnableDiscoveryClient
 @SpringBootApplication
+@EnableDiscoveryClient
+@EnableResourceServer
+@EnableFeignClients
 public class StockApplication extends ResourceServerConfigurerAdapter {
 
     @Override

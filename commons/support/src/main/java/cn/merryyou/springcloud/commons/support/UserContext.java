@@ -15,12 +15,9 @@ public class UserContext {
 
     public static OAuthUser getUser() {
         SecurityContext securityContext = SecurityContextHolder.getContext();
-        if (securityContext == null) return null;
-
-        OAuth2Authentication oAuth = (OAuth2Authentication) securityContext.getAuthentication();
-
+        if( securityContext == null ) return null;
+        OAuth2Authentication oAuth = (OAuth2Authentication)securityContext.getAuthentication();
         UsernamePasswordAuthenticationToken token = (UsernamePasswordAuthenticationToken) oAuth.getUserAuthentication();
-
         return OAuthUser.convert(token);
     }
 }
