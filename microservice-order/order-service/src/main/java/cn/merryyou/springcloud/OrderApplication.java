@@ -4,11 +4,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.feign.EnableFeignClients;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfiguration;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
+import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 
 /**
  * Created on 2017/12/13.
@@ -18,9 +18,9 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
  */
 @SpringBootApplication
 @EnableDiscoveryClient
-@ComponentScan
+@EnableResourceServer
 @EnableFeignClients
-public class OrderApplication extends ResourceServerConfiguration {
+public class OrderApplication extends ResourceServerConfigurerAdapter {
 
     /**
      * 设置资源 URI 的访问的方式和权限

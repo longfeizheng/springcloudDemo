@@ -54,6 +54,7 @@ public class OrderVO {
         return "OrderVO{" +
                 "orderId=" + orderId +
                 ", quantity=" + quantity +
+                ", product=" + product +
                 '}';
     }
 }

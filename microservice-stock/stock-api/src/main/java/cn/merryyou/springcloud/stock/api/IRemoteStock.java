@@ -20,8 +20,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @FeignClient("stock-service")
 public interface IRemoteStock {
 
-    @RequestMapping(value = "/stock/{productid}", method = RequestMethod.PUT)
-    ResponseEntity<String> reduce(@PathVariable(value = "productid") long productid, @RequestBody StockVO stock);
+    @RequestMapping(method=RequestMethod.PUT, value="/stock/{productid}")
+    ResponseEntity<String> reduce(@PathVariable(value="productid") long productid, @RequestBody StockVO stock );
 
     @RequestMapping(method=RequestMethod.GET, value = "/stock/product/{productid}")
     ResponseEntity<ProductVO> getProduct(@PathVariable(value="productid") long productid );

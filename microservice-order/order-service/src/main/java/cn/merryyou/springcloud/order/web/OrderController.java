@@ -33,7 +33,7 @@ public class OrderController {
     @Autowired
     private DiscoveryClient client;
 
-    @RequestMapping(method = RequestMethod.POST, consumes = "application/json")
+    @RequestMapping(method = RequestMethod.POST, consumes = "application/json") // 加上 consumes 表示该接口只接受 header 为 application/json 的接口调用
     public ResponseEntity<OrderVO> create(@RequestBody OrderVO order) {
         ServiceInstance instance = client.getLocalServiceInstance();
         log.info("/create,host:{},service_id:{}", instance.getHost(), instance.getServiceId());
@@ -60,6 +60,7 @@ public class OrderController {
         ResponseEntity<ProductVO> entity = stock.getProduct( productId ); // then get the product from the Stock Service;
         ProductVO product = entity.getBody();
         OrderVO order = new OrderVO(id, product.getProductId(), product.getProductName(), 10 );
-        return new ResponseEntity<OrderVO>(new OrderVO(), HttpStatus.OK );
+        log.info("order={}",order);
+        return new ResponseEntity<OrderVO>(order, HttpStatus.OK );
     }
 }

@@ -35,4 +35,12 @@ public class ProductVO {
     public void setProductName(String productName) {
         this.productName = productName;
     }
+
+    @Override
+    public String toString() {
+        return "ProductVO{" +
+                "productId=" + productId +
+                ", productName='" + productName + '\'' +
+                '}';
+    }
 }

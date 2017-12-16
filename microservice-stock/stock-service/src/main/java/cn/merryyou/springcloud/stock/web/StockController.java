@@ -27,17 +27,17 @@ public class StockController {
     /**
      * 扣减库存 ，模拟根据productid 来进行扣减库存
      *
-     * @param productId
+     * @param productid
      * @param stock
      * @return
      */
     @RequestMapping(value = "/{productid}", method = RequestMethod.PUT)
-    public ResponseEntity<String> reduce(@PathVariable long productId, @RequestBody StockVO stock) {
+    public ResponseEntity<String> reduce(@PathVariable long productid, @RequestBody StockVO stock) {
         ServiceInstance instance = client.getLocalServiceInstance();
 
         log.info("/reduce,host:{},service_id:{}", instance.getHost(), instance.getServiceId());
 
-        log.info("====success reduced {} products with product id:{}", stock.getReduce(), productId);
+        log.info("====success reduced {} products with product id:{}", stock.getReduce(), productid);
 
         return new ResponseEntity<String>(HttpStatus.OK);
     }
@@ -46,8 +46,9 @@ public class StockController {
     @ResponseBody
     public ResponseEntity<ProductVO> getProduct(@PathVariable long productid) {
         ServiceInstance instance = client.getLocalServiceInstance();
-        log.info("/get product,host:{},service_id:{}", instance.getHost(), instance.getServiceId());
+        log.info("/get product,host:{},service_id:{},productid={}", instance.getHost(), instance.getServiceId(),productid);
         ProductVO product = new ProductVO(productid, "sample");
+        log.info("product={}",product);
         return new ResponseEntity<ProductVO>(product, HttpStatus.OK);
     }
 }
