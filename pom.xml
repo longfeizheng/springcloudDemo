@@ -16,6 +16,8 @@
         <module>commons</module>
         <module>authentication-server</module>
         <module>authentication-server</module>
+        <module>config-git</module>
+        <module>config-git/config-client</module>
     </modules>
     <packaging>pom</packaging>
 
