@@ -3,7 +3,9 @@ spring:
     name: stock-service
 server:
   port: 3000
-
+feign:
+  hystrix:
+    enabled: true
 
 security:
   oauth2:

@@ -1,5 +1,6 @@
 package cn.merryyou.springcloud.stock.api;
 
+import cn.merryyou.springcloud.stock.fallback.IRemoteStockHystrix;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  * @author zlf
  * @since 1.0
  */
-@FeignClient("stock-service")
+@FeignClient(name = "stock-service" , fallback = IRemoteStockHystrix.class)
 public interface IRemoteStock {
 
     @RequestMapping(method=RequestMethod.PUT, value="/stock/{productid}")
