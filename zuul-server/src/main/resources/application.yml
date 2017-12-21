@@ -29,5 +29,13 @@ zuul.sensitiveHeaders: Cookie,Set-Cookie
 logging:
   level: debug
 
+hystrix:
+  command:
+      default:
+        execution:
+          isolation:
+            thread:
+              timeoutInMilliseconds: 5000
+
 
 
